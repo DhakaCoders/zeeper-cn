@@ -49,6 +49,22 @@
 /*==============================================================
     Tablet Devices
 ================================================================*/
+@media (max-width: 1199px) {
+    .attr-nav > ul > li > a{
+        margin-top: 26px;
+    }
+    nav.navbar.bootsnav ul.nav > li > a{
+        padding-top: 35px;
+    }
+}
+@media (max-width: 992px) {
+    nav.navbar.bootsnav .navbar-toggle{
+        margin-top: 32px;
+    }
+    .attr-nav > ul > li > a {
+        margin-top: 35px;
+    }
+}
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .preloader .spinner {
@@ -182,6 +198,12 @@
     .blog-wrap.grid {
         padding: 100px 0 35px;
     }
+     nav.navbar.bootsnav .navbar-toggle{
+        margin-top: 32px;
+    }
+    .attr-nav > ul > li > a {
+        margin-top: 35px;
+    }
 }
 
 
@@ -203,7 +225,6 @@
     }
     .attr-nav > ul > li > a {
         padding: 5px 15px!important;
-        margin: 15px 0 20px 0;
         font-size: 13px;
     }
     .navbar-brand img {
@@ -457,7 +478,6 @@
     }
     .attr-nav > ul > li > a {
         padding: 5px 15px!important;
-        margin: 15px 0 20px 0;
         font-size: 13px;
     }
     .navbar-brand img {
