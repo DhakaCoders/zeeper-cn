@@ -38,12 +38,7 @@ if( !function_exists('cbv_theme_setup') ){
 		) );
 
 		register_nav_menus( array(
-          'cbv_main_menu' => __( 'Hoofdmenu', THEME_NAME ),
-          'cbv_mobilemain_menu' => __( 'Mobile Hoofdmenu', THEME_NAME ),
-          'cbv_fta_menu' => __( 'Footer Menu 1', THEME_NAME ),
-          'cbv_ftb_menu' => __( 'Footer Menu 2', THEME_NAME ),
-          'cbv_sidebar_menu' => __( 'Sidebar Menu', THEME_NAME ),
-          'cbv_copyright_menu' => __( 'Copyright Menu', THEME_NAME ),
+          'cbv_main_menu' => __( 'Main Menu', THEME_NAME ),
 		) );
 
 	}
@@ -54,21 +49,19 @@ add_action( 'after_setup_theme', 'cbv_theme_setup' );
 Enqueue Scripts->>
 */
 function cbv_theme_scripts(){
-    include_once( THEME_DIR . '/enq-scripts/popper.php' );
     include_once( THEME_DIR . '/enq-scripts/bootstrap.php' );
+    include_once( THEME_DIR . '/enq-scripts/waypoints.php' );
+    include_once( THEME_DIR . '/enq-scripts/magnific.php' );
     include_once( THEME_DIR . '/enq-scripts/fonts.php' );
-    include_once( THEME_DIR . '/enq-scripts/jquery.ui.php' );
-    include_once( THEME_DIR . '/enq-scripts/fancybox.php' );
-    include_once( THEME_DIR . '/enq-scripts/slick.php' );
-    include_once( THEME_DIR . '/enq-scripts/stick.sidebar.php' );
-    include_once( THEME_DIR . '/enq-scripts/nav.php' );
+    include_once( THEME_DIR . '/enq-scripts/owl.carousel.php' );
+    include_once( THEME_DIR . '/enq-scripts/mailer.php' );
+    include_once( THEME_DIR . '/enq-scripts/animate.php' );
+    include_once( THEME_DIR . '/enq-scripts/bootsnav.php' );
     include_once( THEME_DIR . '/enq-scripts/google.maps.php' );
-    include_once( THEME_DIR . '/enq-scripts/matchheight.php' );
-    include_once( THEME_DIR . '/enq-scripts/app.php' );
     include_once( THEME_DIR . '/enq-scripts/theme.default.php' );
 }
 
-//add_action( 'wp_enqueue_scripts', 'cbv_theme_scripts');
+add_action( 'wp_enqueue_scripts', 'cbv_theme_scripts');
 
 
 /**

@@ -1291,7 +1291,8 @@ nav.navbar.bootsnav {
     height: 50px
 }
 
-.contact-btn button {
+.contact-btn button,
+.contact-btn input[type=submit] {
     border: 0;
     padding: 12px 30px;
     border-radius: 2px;
@@ -1571,4 +1572,11 @@ nav.navbar.bootsnav {
 
 .widget.categories li a:hover {
     color: #cd0fd8
+}
+.default-page-con {
+    min-height: 550px;
+}
+.default-page-con {
+    padding-bottom: 80px;
+    padding-top: 72px;
 }

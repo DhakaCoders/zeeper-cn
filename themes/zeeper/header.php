@@ -1,148 +1,96 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>> 
-<head> 
-  <meta charset="<?php bloginfo('charset'); ?>">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <?php $favicon = get_theme_mod('favicon'); if(!empty($favicon)) { ?> 
-  <link rel="shortcut icon" href="<?php echo $favicon; ?>" />
-  <?php } ?>
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->  
-
-<?php wp_head(); ?>
+<html <?php language_attributes(); ?> class="js">
+    <head>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/png" href="http://themehoster.com/rp/zeeper/<?php echo THEME_URI; ?>/assets/images/favicon.png">
+    <?php $favicon = get_theme_mod('favicon'); if(!empty($favicon)) { ?> 
+    <link rel="shortcut icon" href="<?php echo $favicon; ?>" />
+    <?php } ?>
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        @-webkit-keyframes _gm4362 {
+        0% { -webkit-transform: translate3d(0px,0px,0); -webkit-animation-timing-function: ease-out; }
+        50% { -webkit-transform: translate3d(0px,-20px,0); -webkit-animation-timing-function: ease-in; }
+        100% { -webkit-transform: translate3d(0px,0px,0); -webkit-animation-timing-function: ease-out; }
+        }
+    </style>
+    <style>
+    .dismissButton{background-color:#fff;border:1px solid #dadce0;color:#1a73e8;border-radius:4px;font-family:Roboto,sans-serif;font-size:14px;height:36px;cursor:pointer;padding:0 24px}.dismissButton:hover{background-color:rgba(66,133,244,0.04);border:1px solid #d2e3fc}.dismissButton:focus{background-color:rgba(66,133,244,0.12);border:1px solid #d2e3fc;outline:0}.dismissButton:hover:focus{background-color:rgba(66,133,244,0.16);border:1px solid #d2e2fd}.dismissButton:active{background-color:rgba(66,133,244,0.16);border:1px solid #d2e2fd;box-shadow:0 1px 2px 0 rgba(60,64,67,0.3),0 1px 3px 1px rgba(60,64,67,0.15)}.dismissButton:disabled{background-color:#fff;border:1px solid #f1f3f4;color:#3c4043}
+    </style>
+    <?php wp_head(); ?>
 </head>
+
 <body <?php body_class(); ?>>
 <?php 
-  $logoObj = get_field('logo_header_bannerless', 'options');
+  $dlink = get_field('dlink', 'options');
+  $logoObj = get_field('logo_header', 'options');
   if( is_array($logoObj) ){
     $logo_tag = '<img src="'.$logoObj['url'].'" alt="'.$logoObj['alt'].'" title="'.$logoObj['title'].'">';
   }else{
     $logo_tag = '';
   }
-?>
+?> 
+<div class="wrapper">
+<!--Start Preloader-->
+<div class="preloader">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>
+<!--End Preloader-->
 
-<div class="bdoverlay"></div>
-<header class="header page-hdr">
-  <div class="header-inr">
-    <div class="header-cntlr clearfix">
-      <div class="hdr-lft">
-        <div class="hdr-humbergur-btn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="logo">
-          <a class="no-bnr-logo" href="<?php echo esc_url(home_url('/')); ?>">
-            <?php echo $logo_tag; ?>
-          </a>
-        </div>
-      </div>
-      <div class="hdr-mid">
-        <nav class="main-nav">
-          <?php 
-            $menuOptionsb = array( 
-                'theme_location' => 'cbv_main_menu', 
-                'menu_class' => 'clearfix reset-list',
-                'container' => '',
-                'container_class' => ''
-              );
-            wp_nav_menu( $menuOptionsb ); 
-          ?>  
+<!--Start Body Wrap-->
+<div id="body-wrap">
+    <!--Start Header-->
+    <header id="header">
+        <nav class="navbar navbar-default bootsnav on no-full affix-top" data-spy="affix" data-offset-top="10">
+            <div class="container">
+                <!-- Start Atribute Navigation -->
+                <?php if( !empty($dlink) ): ?>
+                <div class="attr-nav">
+                    <ul>
+                        <li>
+                            <a href="<?php echo $dlink; ?>" download>
+                                <i class="icofont-download"></i> Download
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Atribute Navigation -->
+                <?php endif; ?>
+
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="icofont icofont-navigation-menu"></i>
+                    </button>
+                    <a class="navbar-brand logo-cntlr" href="<?php echo esc_url(home_url('/')); ?>">
+                      <?php echo $logo_tag; ?>
+                    </a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <?php 
+                      $menuOptionsb = array( 
+                          'theme_location' => 'cbv_main_menu', 
+                          'menu_class' => 'nav navbar-nav navbar-right',
+                          'container' => '',
+                          'container_class' => ''
+                        );
+                      wp_nav_menu( $menuOptionsb ); 
+                    ?>  
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
         </nav>
-      </div>
-      <div class="hdr-rgt">
-        <div class="hdr-rgt-items">
-          <div class="hdr-search-btn">
-            <i><img src="<?php echo THEME_URI; ?>/assets/images/search-icon-dark.png"></i>
-          </div>
-          <div class="hdr-mini-cart-btn">
-            <a href="<?php echo wc_get_cart_url(); ?>">
-              <i><img src="<?php echo THEME_URI; ?>/assets/images/cart-icon-dark.png"></i>
-              <?php if(WC()->cart->get_cart_contents_count() > 0) {
-                echo sprintf ( '<span>%d</span>', WC()->cart->get_cart_contents_count() );
-              } else {
-                echo sprintf ( '<span>%d</span>', 0 );
-              }
-              ?>
-            </a>
-          </div>
-          <div class="hdr-account">
-            <span><?php _e('Account', THEME_NAME); ?></span>
-            <ul class="reset-list clearfix">
-              <li><a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">My Profile</a></li>
-              
-                
-              <?php 
-              if( is_user_logged_in() ){
-                foreach ( wc_get_account_menu_items() as $endpoint => $label ) : 
-                  if($endpoint == 'customer-logout'):
-              ?>
-              <li>
-                <i class="fas fa-sign-out-alt"></i>
-                <a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>">Log out</a>
-              </li>
-              <?php endif; endforeach; 
-              } else {
-              ?>
-              <li>
-                <i class="fas fa-sign-out-alt"></i>
-                <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">Log In</a>
-              </li>
-            <?php } ?>
-              
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="xs-nav-cntlr">
-      <div class="xs-nav-inr">
-        <div class="menu-closebtn">
-          <span></span>
-          <span></span>
-        </div>
-        <div class="xs-main-nav">
-          <?php 
-            $xmenuOptionsb = array( 
-                'theme_location' => 'cbv_mobilemain_menu', 
-                'menu_class' => 'clearfix reset-list',
-                'container' => '',
-                'container_class' => ''
-              );
-            wp_nav_menu( $xmenuOptionsb ); 
-          ?>  
-        </div>
-        <div class="xs-other-nav">
-          <ul class="reset-list">
-            <li class="menu-item-has-children">
-              <a href="#">My account</a>
-              <ul class="sub-menu">
-              <li><a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">My Profile</a></li>
-              <?php 
-              if( is_user_logged_in() ){
-                foreach ( wc_get_account_menu_items() as $endpoint => $label ) : 
-                  if($endpoint == 'customer-logout'):
-              ?>
-              <li class="xs-logout">
-                <a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>">Log out</a>
-              </li>
-              <?php endif; endforeach; 
-              } else {
-              ?>
-              <li class="xs-logout">
-                <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">Log In</a>
-              </li>
-            <?php } ?>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-<?php get_template_part('templates/header', 'popups'); ?>
+        <div class="clearfix"></div>
+    </header>
+    <!--End Header-->
