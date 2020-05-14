@@ -5,11 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--Favicon-->
-    <link rel="shortcut icon" type="image/png" href="http://themehoster.com/rp/zeeper/<?php echo THEME_URI; ?>/assets/images/favicon.png">
-    <?php $favicon = get_theme_mod('favicon'); if(!empty($favicon)) { ?> 
-    <link rel="shortcut icon" href="<?php echo $favicon; ?>" />
-    <?php } ?>
-    <!--[if IE]>
+    <link rel="shortcut icon" type="image/png" href="http://themehoster.com/rp/zeeper/assets/images/favicon.png">    <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <style type="text/css">
@@ -47,8 +43,9 @@
 
 <!--Start Body Wrap-->
 <div id="body-wrap">
+    <div id="maplocation" data-homeurl="<?php echo THEME_URI; ?>"></div>
     <!--Start Header-->
-    <header id="header">
+    <header id="header" <?php if( !is_front_page() ): echo 'class="page-hdr"'; endif; ?>>
         <nav class="navbar navbar-default bootsnav on no-full affix-top" data-spy="affix" data-offset-top="10">
             <div class="container">
                 <!-- Start Atribute Navigation -->

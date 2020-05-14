@@ -1,6 +1,8 @@
 (function ($) {
     "use strict";
-
+    if( $('#maplocation').length ){
+      var markerSrc = $('#maplocation').data('homeurl');
+    }
     $(window).on('load', function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
             center: {
@@ -138,7 +140,7 @@
             position: new google.maps.LatLng(40.730610, -73.935242),
             map: map,
             icon: {
-                url: 'assets/images/map-marker.png',
+                url: markerSrc+'/assets/images/map-marker.png',
             },
             animation: google.maps.Animation.BOUNCE
         });
