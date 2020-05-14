@@ -2,7 +2,7 @@
 /**
 * Get the image tag with alt/title tag
 */
-function cbv_get_image_tag( $id, $size = 'full', $title = false ){
+function cbv_get_image_tag( $id, $size = 'full', $title = false){
 	if( isset( $id ) ){
 		$output = '';
 		$image_title = get_the_title($id);
@@ -21,6 +21,27 @@ function cbv_get_image_tag( $id, $size = 'full', $title = false ){
 		return $output;
 	}
 	return false;
+}
+
+function cbv_responsive_image_tag( $id, $size = 'full', $title = false){
+  if( isset( $id ) ){
+    $output = '';
+    $image_title = get_the_title($id);
+    $image_alt = get_post_meta( $id, '_wp_attachment_image_alt', true);
+    if( empty( $image_alt ) ){
+      $image_alt = $image_title;
+    }
+    $image_src = wp_get_attachment_image_src( $id, $size, false );
+
+    if( $title ){
+      $output = '<img class="img-responsive" src="'.$image_src[0].'" alt="'.$image_alt.'" title="'.$image_title.'">';
+    }else{
+      $output = '<img class="img-responsive" src="'.$image_src[0].'" alt="'.$image_alt.'">';
+    }
+
+    return $output;
+  }
+  return false;
 }
 
 /**
