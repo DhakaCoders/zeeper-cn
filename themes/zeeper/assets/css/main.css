@@ -1572,3 +1572,14 @@ nav.navbar.bootsnav {
 .widget.categories li a:hover {
     color: #cd0fd8
 }
+
+
+/*page*/
+.fl-page-content{
+    padding-bottom: 50px;
+}
+.default-page-con ul li,
+.default-page-con ol li{
+    padding-bottom: 10px;
+    font-size: 17px;
+}
