@@ -2,6 +2,7 @@
   $showhidecounter = get_field('showhidecounter', HOMEID);
   if( $showhidecounter ):
     $counterup = get_field('counterup', HOMEID);
+    if($counterup):
 ?>
 <!--Start Counter Section-->
 <section id="counter" class="bg-cover position-relative">
@@ -33,4 +34,5 @@
     <?php } ?>
 </section>
 <!--End Counter Section-->
+<?php endif; ?>
 <?php endif; ?>

@@ -2,6 +2,7 @@
   $showhidepricing = get_field('showhidepricing', HOMEID);
   if( $showhidepricing ):
     $pricingsec = get_field('pricingsec', HOMEID);
+    if($pricingsec):
 ?>
 <!--Start Pricing Section-->
 <section id="pricing">
@@ -45,11 +46,12 @@
                         ?>
                         <h2 class="font-700 color-base2">
                         <?php 
-                            if( !empty($pricerow['price']) ){
+                            if( !empty($pricerow['price'])){
                                 $priceEx = explode('.', $pricerow['price']);
-                                echo '<span>$</span> '.$priceEx[0].' <sup class="font-800">.'.$priceEx[1].'</sup>';
-                            }else{
-                                echo '<span>$</span> '.$pricerow['price'];
+                                echo '<span>$</span> '.$priceEx[0];
+                                if( isset($priceEx[1]) && !empty($priceEx[1]) ){
+                                    echo ' <sup class="font-800">.'.$priceEx[1].'</sup>';
+                                }
                             }
                         ?> 
                         <?php if( !empty($pricerow['duration']) ) printf('<sub class="font-600">/%s</sub>', $pricerow['duration']); ?>
@@ -98,4 +100,5 @@
     <!--End Container-->
 </section>
 <!--End Pricing Section-->
+<?php endif; ?>
 <?php endif; ?>

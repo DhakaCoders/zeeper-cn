@@ -2,6 +2,7 @@
   $showhidefaq = get_field('showhidefaq', HOMEID);
   if( $showhidefaq ):
     $faq = get_field('faqsec', HOMEID);
+    if( $faq ):
 ?>
 <!--Start Faq Section-->
 <section id="faq" class="bg-gray">
@@ -68,4 +69,5 @@
     <!--End Container-->
 </section>
 <!--End Faq Section-->
+<?php endif; ?>
 <?php endif; ?>

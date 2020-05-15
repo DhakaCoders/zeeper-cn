@@ -2,6 +2,7 @@
   $showhideabout = get_field('showhideabout', HOMEID);
   if( $showhideabout ):
     $about = get_field('aboutsec', HOMEID);
+    if( $about ):
 ?>
 <!--Start About Section-->
 <section id="about">
@@ -67,4 +68,5 @@
     <!--End Container-->
 </section>
 <!--End About Section-->
+<?php endif; ?>
 <?php endif; ?>

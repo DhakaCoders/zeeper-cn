@@ -2,6 +2,7 @@
   $showhidecontact = get_field('showhidecontact', HOMEID);
   if( $showhidecontact ):
     $contact = get_field('contactsec', HOMEID);
+    if( $contact ):
 ?>
 <!--Start Contact Section-->
 <section id="contact" class="bg-gray">
@@ -125,4 +126,5 @@
     <!--End Container-->
 </section>
 <!--End Contact Section-->
+<?php endif; ?>
 <?php endif; ?>

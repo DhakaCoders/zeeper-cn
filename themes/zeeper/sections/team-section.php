@@ -2,6 +2,7 @@
   $showhideteam = get_field('showhideteam', HOMEID);
   if( $showhideteam ):
     $team = get_field('teamsec', HOMEID);
+    if( $team ):
 ?>
 <!--Start Team Section-->
 <section id="team" class="bg-gray">
@@ -64,4 +65,5 @@
     <!--End Container-->
 </section>
 <!--End Team Section-->
+<?php endif; ?>
 <?php endif; ?>

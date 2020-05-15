@@ -2,6 +2,7 @@
   $showhidetest = get_field('showhidetest', HOMEID);
   if( $showhidetest ):
     $testm = get_field('testimonialsec', HOMEID);
+    if( $testm ):
 ?>
 <!--Start Testimonial Section-->
 <section id="testimonial" class="gradient-bg">
@@ -73,4 +74,5 @@
     <!--End Container-->
 </section>
 <!--End Testimonial Section-->
+<?php endif; ?>
 <?php endif; ?>

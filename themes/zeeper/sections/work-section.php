@@ -2,6 +2,7 @@
   $showhidework = get_field('showhidework', HOMEID);
   if( $showhidework ):
     $howwork = get_field('howwork', HOMEID);
+    if($howwork):
 ?>
 <!--Start How Work Section-->
 <section id="how-work">
@@ -53,4 +54,5 @@
     <!--End Container-->
 </section>
 <!--End How It Work Section-->
+<?php endif; ?>
 <?php endif; ?>

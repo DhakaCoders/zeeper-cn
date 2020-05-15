@@ -2,6 +2,7 @@
   $showhidechoose = get_field('showhidechoose', HOMEID);
   if( $showhidechoose ):
     $choose = get_field('choose', HOMEID);
+    if($choose):
 ?>
 <!--Start Why Choose Section-->
 <section id="why-choose">
@@ -54,4 +55,5 @@
     <!--End Container-->
 </section>
 <!--End Why Choose Section-->
+<?php endif; ?>
 <?php endif; ?>

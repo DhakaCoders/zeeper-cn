@@ -2,6 +2,7 @@
   $showhidescr = get_field('showhidescr', HOMEID);
   if( $showhidescr ):
     $screenshot = get_field('screenshotsec', HOMEID);
+    if($screenshot):
 ?>
 <!--Start App Screenshots Section-->
 <section id="app-screenshot" class="bg-gray">
@@ -40,4 +41,5 @@
     
 </section>
 <!--End App Screenshots Section-->
+<?php endif; ?>
 <?php endif; ?>

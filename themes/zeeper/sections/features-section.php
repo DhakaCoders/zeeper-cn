@@ -2,6 +2,7 @@
   $showhidefeature = get_field('showhidefeature', HOMEID);
   if( $showhidefeature ):
     $feature = get_field('featuresec', HOMEID);
+    if( $feature ):
 ?>
 <!--Start Features Section-->
 <section id="features" class="bg-gray">
@@ -47,4 +48,5 @@
     <!--End Container-->
 </section>
 <!--End Features Section-->
+<?php endif; ?>
 <?php endif; ?>
