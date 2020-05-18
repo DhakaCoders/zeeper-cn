@@ -42,7 +42,7 @@
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapse<?php echo $i; ?>" class="panel-collapse collapse in">
+                        <div id="collapse<?php echo $i; ?>" class="panel-collapse collapse<?php if($i == 1): echo ' in'; endif; ?>">
                         <div class="font-500 panel-body">
                         <?php if( !empty($faqrow['description']) ) echo $faqrow['description'];?>
                         </div>
